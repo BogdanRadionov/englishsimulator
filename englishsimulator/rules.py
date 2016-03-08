@@ -51,10 +51,10 @@ class RulesQuestion(object):
 		else:
 			if not silence: print u"Correct answer was:"
 			if to=='ru':
-				for i in word.en:
+				for i in word.ru:
 					print i
 			elif to=='en':
-				for i in word.ru:
+				for i in word.en:
 					print i
 				return False
 
