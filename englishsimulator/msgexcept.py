@@ -1,4 +1,4 @@
 #-*- coding:utf-8 -*-
 
-class EndQuestion(Exception):
-	pass
+class WordsEnded(Exception):
+	""" Возбуждается при попытке получить слова соответствующими методами экземпляра класса Words, в случае, если они закончились """

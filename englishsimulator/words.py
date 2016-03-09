@@ -3,6 +3,7 @@
 """ Описывает классы для слова и набора слов. Фактически объект words - лист-враппер для списка слов """
 
 import random
+from msgexcept import *
 
 class Word(object):
 
@@ -39,13 +40,20 @@ class Words(object):
 			self._list_words.append(Word(w[0], w[1]))
 
 	def get_random_word(self, delete=True):
-		rand = random.randint(0, len(self._list_words)-1)
-		return self._list_words.pop(rand) if delete else self._list_words[rand]
+		try:
+			rand = random.randint(0, len(self._list_words)-1)
+			return self._list_words.pop(rand) if delete else self._list_words[rand]
+		except (IndexError, ValueError):
+			raise WordsEnded()
 
 	def get_word(self, first=True, delete=True):
-		if first:
-			return self._list_words.pop(0) if delete else self._list_words[0]
-		return self._list_words.pop(-1) if delete else self._list_words[-1]
+		try:
+			if first:
+				return self._list_words.pop(0) if delete else self._list_words[0]
+			return self._list_words.pop(-1) if delete else self._list_words[-1]
+		except IndexError:
+			raise WordsEnded()
+
 
 	def __len__(self):
 		return len(self._list_words)

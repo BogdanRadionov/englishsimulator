@@ -4,7 +4,7 @@ import sys
 from dataloader import Loader
 from words import Words
 from msghelper import *
-from rules import RulesQuestion
+from rules import RulesQuestion, Study
 
 encoding = sys.stdin.encoding
 loader = Loader()
@@ -59,16 +59,19 @@ def getwords():
 def startmenu():
 	while True:
 		print u'Your choice:'
-		print u'1 - start question'
-		print u'2 - add word to base'
-		print u'3 - create base'
+		print u'1 - The study'
+		print u'2 - start question'
+		print u'3 - add word to base'
+		print u'4 - create base'
 		print u'0 - exit'
 		command = int(raw_input())
 		if command == 1:
-			RulesQuestion(getwords()).start_question_translate()
+			Study(getwords()).start()
 		elif command == 2:
-			addtobase()
+			RulesQuestion(getwords()).start_question_translate()
 		elif command == 3:
+			addtobase()
+		elif command == 4:
 			newbase()
 		elif command == 0:
 			return

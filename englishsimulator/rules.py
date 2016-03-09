@@ -13,8 +13,6 @@ class RulesQuestion(object):
 		self.rand = rand
 
 	def question_translate(self, to, repeat=1, silence=False):
-		if not len(self.words):
-			raise EndQuestion()
 		s = 0
 		if self.rand:
 			word = self.words.get_random_word()
@@ -77,10 +75,35 @@ class RulesQuestion(object):
 					correctanswers+=1
 				else:
 					pass
-			except EndQuestion:
+			except WordsEnded:
 				print u'End question!'
 				print u'Total answers - {0}'.format(totalanswers)
 				print u'Correct answers - {0}'.format(correctanswers)
 				print u'press enter to return'
 				raw_input()
-				break
+				return
+
+class Study(object):
+	def __init__(self, w):
+		self.words = w
+
+	def survey(self, variant):
+		while not raw_input().decode(encoding) in variant:
+			print u'Wrong!'
+			msg_multiline(variant, startline='Variants:')
+
+
+	def start(self):
+		while True:
+			try:
+				w = self.words.get_word()
+			except WordsEnded:
+				print u'Happy end!\npress enter to return'
+				raw_input()
+				return
+			msg_multiline(w.en, startline='English:')
+			msg_multiline(w.ru, startline='Russian:')
+			print u'Enter english variant:'
+			self.survey(w.en)
+			print u'Enter russian variant:'
+			self.survey(w.ru)
