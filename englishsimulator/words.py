@@ -2,8 +2,11 @@
 
 """ Описывает классы для слова и набора слов. Фактически объект words - лист-враппер для списка слов """
 
+import re
 import random
 from msgexcept import *
+
+pattern_iv = re.compile(ur'#1: *(\w.*\w) *#2: *(\w.*\w) *#3: *(\w.*\w)', re.UNICODE)
 
 class Word(object):
 
@@ -11,17 +14,35 @@ class Word(object):
 	Если необходимо записать несколько возможных вариантов слов, передаем их строкой, разделенной '|', Фактически, любой вариант строки переданный в объект, будет храниться в виде списка 1 или более слов """
 
 	def __init__(self, en, ru):
-		self.en = en.split('|')
+		self.en = self.parse_iv(en)
 		self.ru = ru.split('|')
 		self.multien = True if len(self.en) > 1 else False
 		self.multiru = True if len(self.ru) > 1 else False
+
 	def iscorrect(self, w):
 		if w in self.en:
 			return self.en
 		elif w in self.ru:
 			return self.ru
+
+	def parse_iv(self, en):
+		if pattern_iv.search(en):
+			en = pattern_iv.search(en).groups()
+			en = [i.split('|') for i in en]
+			self.irregularverb = True
+			return en
+		else:
+			self.irregularverb = False
+			return en.split('|')
+
+				
+
 	def spelling(self):
 		return [' '.join(i).replace('   ', ' space ') for i in self.en]
+
+	def __getitem__(self, k):
+		return {'en': self.en, 'ru': self.ru}[k]
+
 
 class Words(object):
 

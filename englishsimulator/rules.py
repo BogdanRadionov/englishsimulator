@@ -92,7 +92,6 @@ class Study(object):
 			print u'Wrong!'
 			msg_multiline(variant, startline='Variants:')
 
-
 	def start(self):
 		while True:
 			try:
@@ -107,3 +106,21 @@ class Study(object):
 			self.survey(w.en)
 			print u'Enter russian variant:'
 			self.survey(w.ru)
+"""
+class IrregularVerbs(object):
+	def __init__(self, w):
+		self.words = w
+
+	def survey(self, w, repeat):
+
+	def start(self):
+		print u'Question language: "en", "ru" (default "en")'
+		question_lang = raw_input()
+		print u'Repeat question (default 3)'
+		repeat = raw_input()
+		question_lang = question_lang if question_lang else 'en'
+		repeat = int(repeat) if repeat else 3
+		while True:
+		w = self.words.get_word()
+		msg_multiline(w[question_lang])
+"""
