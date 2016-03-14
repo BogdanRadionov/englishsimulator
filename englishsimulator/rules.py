@@ -106,12 +106,30 @@ class Study(object):
 			self.survey(w.en)
 			print u'Enter russian variant:'
 			self.survey(w.ru)
-"""
+
 class IrregularVerbs(object):
 	def __init__(self, w):
 		self.words = w
+		self.msg_forms = ['Enter first form:', 'Enter second form:', 'Enter third form:']
 
-	def survey(self, w, repeat):
+	def survey(self, forms, repeat):
+		forms = list(forms)
+		f = 0
+		while any(forms) and f <= 2:
+			print self.msg_forms[f]
+			s = 0
+			while forms[f] and s <= 2:
+				answer = raw_input().decode(encoding)
+				try:
+					forms[f].remove(answer)
+					print u'is correct'
+					if forms[f]:
+						print u'Enter next variant:'
+				except ValueError:
+					print u'Incorrect, please try again!'
+					s+=1
+			else:
+				f+=1
 
 	def start(self):
 		print u'Question language: "en", "ru" (default "en")'
@@ -120,7 +138,12 @@ class IrregularVerbs(object):
 		repeat = raw_input()
 		question_lang = question_lang if question_lang else 'en'
 		repeat = int(repeat) if repeat else 3
-		while True:
-		w = self.words.get_word()
-		msg_multiline(w[question_lang])
-"""
+		while self.words:
+			w = self.words.get_word()
+			msg_inline(w[question_lang][0]) if question_lang == 'en' else msg_inline(w[question_lang])
+			self.survey(w['en'], repeat)
+		else:
+			print u'Happy end!'
+			print u'Press enter to return'
+			raw_input()
+			return

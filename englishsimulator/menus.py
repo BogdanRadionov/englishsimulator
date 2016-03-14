@@ -4,7 +4,7 @@ import sys
 from dataloader import Loader
 from words import Words
 from msghelper import *
-from rules import RulesQuestion, Study
+from rules import *
 
 encoding = sys.stdin.encoding
 loader = Loader()
@@ -60,18 +60,21 @@ def startmenu():
 	while True:
 		print u'Your choice:'
 		print u'1 - The study'
-		print u'2 - start question'
-		print u'3 - add word to base'
-		print u'4 - create base'
+		print u'2 - Questions Irregular verbs'
+		print u'3 - start question'
+		print u'4 - add word to base'
+		print u'5 - create base'
 		print u'0 - exit'
 		command = int(raw_input())
-		if command == 1:
+		if command == 2:
+			IrregularVerbs(getwords()).start()
+		elif command == 1:
 			Study(getwords()).start()
-		elif command == 2:
-			RulesQuestion(getwords()).start_question_translate()
 		elif command == 3:
-			addtobase()
+			RulesQuestion(getwords()).start_question_translate()
 		elif command == 4:
+			addtobase()
+		elif command == 5:
 			newbase()
 		elif command == 0:
 			return
