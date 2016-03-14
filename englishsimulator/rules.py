@@ -100,10 +100,18 @@ class Study(object):
 				print u'Happy end!\npress enter to return'
 				raw_input()
 				return
-			msg_multiline(w.en, startline='English:')
+			startline = 'English:'
+			if w.irregularverb:
+				en = []
+				for i in w['en']:
+					for j in i:
+						en.append(j)
+				en = [' '.join(en)]
+				startline = 'Irregular verb:'
+			msg_multiline(en, startline=startline)
 			msg_multiline(w.ru, startline='Russian:')
 			print u'Enter english variant:'
-			self.survey(w.en)
+			self.survey(en)
 			print u'Enter russian variant:'
 			self.survey(w.ru)
 
