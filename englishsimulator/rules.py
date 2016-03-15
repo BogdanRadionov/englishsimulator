@@ -101,6 +101,7 @@ class Study(object):
 				raw_input()
 				return
 			startline = 'English:'
+			en = w.en
 			if w.irregularverb:
 				en = []
 				for i in w['en']:
