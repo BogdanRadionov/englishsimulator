@@ -8,16 +8,17 @@ from msghelper import *
 encoding = sys.stdin.encoding
 
 class RulesQuestion(object):
-	def __init__(self, w, rand=True):
+	def __init__(self, w):
 		self.words = w
-		self.rand = rand
 
-	def question_translate(self, to, repeat=1, silence=False):
+	def question_translate(self, to, repeat, rand, silence=False):
 		s = 0
-		if self.rand:
-			word = self.words.get_random_word()
-		else:
+		if rand == 'b':
 			word = self.words.get_word()
+		elif rand == 'e':
+			word = self.words.get_word(first=False)
+		elif rand == 'r':
+			word = self.words.get_random_word()
 		if not silence: print u'Words left - {0}'.format(len(self.words))
 		while s < repeat	:
 			if not silence: print u'Enter your answer - attempts {0}'.format(repeat-s)
@@ -63,15 +64,18 @@ class RulesQuestion(object):
 		to = raw_input()
 		print u'Repeat question (default 3)'
 		repeat = raw_input()
+		print u'Order of words: "b" - with begin, "e" - with end: "r" - randomly. (Default "r")'
+		rand = raw_input()
 		to = to if to else 'ru'
 		repeat = int(repeat) if repeat else 3
+		rand = rand if rand else 'r'
 		if to=='random':
 			to = ['en', 'ru']
 		else:
 			to = [to]
 		while True:
 			try:
-				if self.question_translate(random.choice(to), repeat):
+				if self.question_translate(random.choice(to), repeat, rand):
 					correctanswers+=1
 				else:
 					pass
