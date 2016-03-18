@@ -4,6 +4,7 @@
 
 import re
 import random
+from bass import Bass
 from msgexcept import *
 
 pattern_iv = re.compile(ur'#1: *(\w.*\w) *#2: *(\w.*\w) *#3: *(\w.*\w)', re.UNICODE)
@@ -13,11 +14,15 @@ class Word(object):
 	""" Реализует класс для отдельного слова, принимает две строки с английским и русским вариантом.
 	Если необходимо записать несколько возможных вариантов слов, передаем их строкой, разделенной '|', Фактически, любой вариант строки переданный в объект, будет храниться в виде списка 1 или более слов """
 
-	def __init__(self, en, ru):
+	def __init__(self, en, ru, audio=None):
 		self.en = self.parse_iv(en)
 		self.ru = ru.split('|')
 		self.multien = True if len(self.en) > 1 else False
 		self.multiru = True if len(self.ru) > 1 else False
+		if not audio:
+			self.audio = Bass(audio)
+		else:
+			self.audio = None
 
 	def iscorrect(self, w):
 		if w in self.en:
