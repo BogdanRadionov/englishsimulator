@@ -141,6 +141,9 @@ class IrregularVerbs(object):
 				except ValueError:
 					print u'Incorrect, please try again!'
 					s+=1
+					if s == repeat:
+						print u'Answer was:'
+						msg_multiline(forms[f], endline=' ')
 			else:
 				f+=1
 
