@@ -145,10 +145,18 @@ class IrregularVerbs(object):
 		question_lang = raw_input()
 		print u'Repeat question (default 3)'
 		repeat = raw_input()
+		print u'Order of words: "b" - with begin, "e" - with end: "r" - randomly. (Default "b")'
+		rand = raw_input()
 		question_lang = question_lang if question_lang else 'en'
 		repeat = int(repeat) if repeat else 3
+		rand = rand if rand else 'b'
 		while self.words:
-			w = self.words.get_word()
+			if rand == 'b':
+				w = self.words.get_word()
+			elif rand == 'e':
+				w = self.words.get_word(first=False)
+			elif rand == 'r':
+				w = self.words.get_random_word()
 			msg_inline(w[question_lang][0]) if question_lang == 'en' else msg_inline(w[question_lang])
 			self.survey(w['en'], repeat)
 		else:
