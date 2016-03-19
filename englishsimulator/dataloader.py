@@ -7,6 +7,11 @@ import json
 pathdata = 'data\\'
 pattern = r'^([a-zA-Z0-9-_]*)\.json$'
 
+class LoadList(list):
+	def __init__(self, *args, **kwargs):
+		super(LoadList, self).__init__(*args, **kwargs)
+		self.basename = None
+
 class Loader(object):
 	def __init__(self, path=pathdata, pattern=pattern):
 		self.pathdata = pathdata
@@ -19,7 +24,10 @@ class Loader(object):
 	def load(self, args):
 		data = []
 		for i in args:
-			data.extend(json.load(open(os.path.join(self.pathdata, i + '.json'))))
+			for j in json.load(open(os.path.join(self.pathdata, i + '.json'))):
+				j = LoadList(j)
+				j.basename = i.lower()
+				data.append(j)
 		return data
 
 	def create_base(self, name):

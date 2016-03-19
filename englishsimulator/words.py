@@ -19,6 +19,7 @@ class Word(object):
 		self.ru = ru.split('|')
 		self.multien = True if len(self.en) > 1 else False
 		self.multiru = True if len(self.ru) > 1 else False
+		_base = None
 		if not audio:
 			self.audio = Bass(audio)
 		else:
@@ -59,11 +60,15 @@ class Words(object):
 		self.add_words(words)
 
 	def add_word(self, word):
-		self._list_words.append(Word(w[0], w[1]))
+		w = Word(w[0], w[1])
+		w._base = word.basename
+		self._list_words.append(w)
 
 	def add_words(self, words):
 		for w in words:
-			self._list_words.append(Word(w[0], w[1]))
+			word = Word(w[0], w[1])
+			word._base = w.basename
+			self._list_words.append(word)
 
 	def get_random_word(self, delete=True):
 		try:
