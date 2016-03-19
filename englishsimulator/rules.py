@@ -92,33 +92,58 @@ class Study(object):
 		self.words = w
 
 	def survey(self, variant):
-		while not raw_input().decode(encoding) in variant:
+		if self.options == 'a' or self.options == 'ta':
+			answer = self.delay()
+		else:
+			answer = raw_input().decode(encoding)
+		while not answer in variant:
 			print u'Wrong!'
-			msg_multiline(variant, startline='Variants:')
+			if self.options == 'a':
+				answer = self.delay()
+				continue
+			elif self.options == 'ta':
+				msg_multiline(variant, startline='Variants:')
+				answer = self.delay()
+				continue
+			elif self.options == 't':
+				msg_multiline(variant, startline='Variants:')
+				answer = raw_input().decode(encoding)
+				continue
 
 	def start(self):
+		print u'Only text: "t", only audio: "a", text plus audio: "ta". (Default "t")'
+		options = raw_input()
+		self.options = options if options else 't'
 		while True:
 			try:
-				w = self.words.get_word()
+				self.w = self.words.get_word()
 			except WordsEnded:
 				print u'Happy end!\npress enter to return'
 				raw_input()
 				return
 			startline = 'English:'
-			en = w.en
-			if w.irregularverb:
+			en = self.w.en
+			if self.w.irregularverb:
 				en = []
-				for i in w['en']:
+				for i in self.w['en']:
 					for j in i:
 						en.append(j)
 				en = [' '.join(en)]
 				startline = 'Irregular verb:'
-			msg_multiline(en, startline=startline)
-			msg_multiline(w.ru, startline='Russian:')
+			if self.options == 't' or options == 'ta':
+				msg_multiline(en, startline=startline)
+			msg_multiline(self.w.ru, startline='Russian:')
 			print u'Enter english variant:'
 			self.survey(en)
 			print u'Enter russian variant:'
-			self.survey(w.ru)
+			self.survey(self.w.ru)
+
+	def delay(self):
+		while True:
+			self.w.play()
+			answer = raw_input().decode(encoding)
+			if answer:
+				return answer
 
 class IrregularVerbs(object):
 	def __init__(self, w):
@@ -159,13 +184,13 @@ class IrregularVerbs(object):
 		rand = rand if rand else 'b'
 		while self.words:
 			if rand == 'b':
-				w = self.words.get_word()
+				self.w = self.words.get_word()
 			elif rand == 'e':
-				w = self.words.get_word(first=False)
+				self.w = self.words.get_word(first=False)
 			elif rand == 'r':
-				w = self.words.get_random_word()
-			msg_inline(w[question_lang][0]) if question_lang == 'en' else msg_inline(w[question_lang])
-			self.survey(w['en'], repeat)
+				self.w = self.words.get_random_word()
+			msg_inline(self.w[question_lang][0]) if question_lang == 'en' else msg_inline(self.w[question_lang])
+			self.survey(self.w['en'], repeat)
 		else:
 			print u'Happy end!'
 			print u'Press enter to return'
