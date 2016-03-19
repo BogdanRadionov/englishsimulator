@@ -2,28 +2,41 @@
 
 """ Описывает классы для слова и набора слов. Фактически объект words - лист-враппер для списка слов """
 
+import os
 import re
 import random
 from bass import Bass
 from msgexcept import *
 
 pattern_iv = re.compile(ur'#1: *(\w.*\w) *#2: *(\w.*\w) *#3: *(\w.*\w)', re.UNICODE)
+path_audio = r'data\audio'
 
 class Word(object):
 
 	""" Реализует класс для отдельного слова, принимает две строки с английским и русским вариантом.
 	Если необходимо записать несколько возможных вариантов слов, передаем их строкой, разделенной '|', Фактически, любой вариант строки переданный в объект, будет храниться в виде списка 1 или более слов """
 
-	def __init__(self, en, ru, audio=None):
+	def __init__(self, en, ru):
 		self.en = self.parse_iv(en)
 		self.ru = ru.split('|')
 		self.multien = True if len(self.en) > 1 else False
 		self.multiru = True if len(self.ru) > 1 else False
 		_base = None
-		if not audio:
-			self.audio = Bass(audio)
+		self._audio = None
+
+	def play(self):
+		if self._audio:
+			self._audio.play()
 		else:
-			self.audio = None
+			self._audio = Bass(os.path.join(path_audio, self._base, self.find_audio_file()))
+			self._audio.play()
+
+	def find_audio_file(self):
+		name = ''
+		for i in os.listdir(os.path.join(path_audio, self._base)):
+			if self.en[0].startswith(' '.join(i.replace('.mp3', '').split('_')).lower()) and len(i) > len(name):
+				name = i.lower()
+		return name
 
 	def iscorrect(self, w):
 		if w in self.en:
