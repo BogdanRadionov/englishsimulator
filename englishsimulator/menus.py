@@ -3,11 +3,39 @@
 import sys
 from dataloader import Loader
 from words import Words
+import tts
 from msghelper import *
 from rules import *
 
 encoding = sys.stdin.encoding
 loader = Loader()
+
+def setings_tts():
+	while True:
+		print u"Настройки TTS:"
+		print u'1 - Выбрать синтезатор:'
+		print u'2 - Установить громкость синтезатора'
+		print u'3 - Установить темп речи'
+		print u'0 - Выйти'
+		command = int(raw_input())
+		if command == 0:
+			return
+		elif command == 1:
+			print u"Choose synthesiser of list:"
+			tts.show_list_of_voices()
+			tts.set_voice(int(raw_input()))
+			continue
+		elif command == 2:
+			print u'Set volume for voice 0 - 100: (Default 100)'
+			volume = raw_input()
+			volume = int(volume) if volume else 100
+			tts.set_volume(volume)
+			continue
+		elif command == 3:
+			print u'Set temp for voice 0 - 100: (Default 50)'
+			temp = raw_input()
+			temp = int(temp) if temp else 50
+			tts.set_rate(temp)
 
 def choicebase(multi=False):
 	bases = loader.get_all_bases()
@@ -64,6 +92,7 @@ def startmenu():
 		print u'3 - start question'
 		print u'4 - add word to base'
 		print u'5 - create base'
+		print u'6 - Setings tts'
 		print u'0 - exit'
 		command = int(raw_input())
 		if command == 2:
@@ -76,5 +105,7 @@ def startmenu():
 			addtobase()
 		elif command == 5:
 			newbase()
+		elif command == 6:
+			setings_tts()
 		elif command == 0:
 			return
