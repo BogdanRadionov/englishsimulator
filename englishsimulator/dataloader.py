@@ -33,10 +33,10 @@ class Loader(object):
 	def create_base(self, name):
 		if os.path.exists(os.path.join(self.pathdata, name + '.json')):
 			return False
-		json.dump([], open(os.path.join(self.pathdata, name + '.json'),'w'),ensure_ascii=False)
+		json.dump([], open(os.path.join(self.pathdata, name + '.json'),'w'),ensure_ascii=False, indent=4)
 		return True
 
 	def save(self, bases, words):
 		for base in bases:
-			data = json.dumps(words, ensure_ascii=False, encoding='utf-8')
+			data = json.dumps(words, ensure_ascii=False, encoding='utf-8', indent=4)
 			open(os.path.join(self.pathdata, base + '.json'),'w').write(data.encode('utf-8'))
