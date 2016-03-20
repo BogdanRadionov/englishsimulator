@@ -2,6 +2,7 @@
 
 import sys
 import random
+import tts
 from msgexcept import *
 from msghelper import *
 
@@ -10,6 +11,14 @@ encoding = sys.stdin.encoding
 class RulesQuestion(object):
 	def __init__(self, w):
 		self.words = w
+
+	def delay_tts(self, text):
+		while not self.tts_mode:
+			tts.speak(text)
+			answer = raw_input().decode(encoding)
+			if answer:
+				return answer
+		return raw_input().decode(encoding)
 
 	def question_translate(self, to, repeat, rand, silence=False):
 		s = 0
@@ -33,9 +42,17 @@ class RulesQuestion(object):
 					print i
 				if word.multien:
 					print u'Variants for translate {0}'.format(len(word.en))
-			answer = raw_input().decode(encoding)
+			if to == 'ru':
+				if not word.irregularverb:
+					answer = self.delay_tts(', '.join(word.en))
+				else:
+					answer = self.delay_tts(', '.join([', '.join(word.en[0]), ', '.join(word.en[1]), ', '.join(word.en[2])]))
+			else:
+				answer = raw_input().decode(encoding)
 			if word.iscorrect(answer):
 				if not silence: print u'Correct, {0}'.format(answer)
+				if to == 'en':
+					tts.speak(answer, silence=self.tts_mode)
 				if to=='ru' and word.multiru:
 					print u'All variants:'
 					for i in word.ru:
@@ -55,6 +72,7 @@ class RulesQuestion(object):
 			elif to=='en':
 				for i in word.en:
 					print i
+				tts.speak(', '.join(word.en), silence=self.tts_mode)
 				return False
 
 	def start_question_translate(self):
@@ -66,6 +84,8 @@ class RulesQuestion(object):
 		repeat = raw_input()
 		print u'Order of words: "b" - with begin, "e" - with end: "r" - randomly. (Default "r")'
 		rand = raw_input()
+		print u'Enable tts: enable - "e", disable - "d" (Default "d")'
+		self.tts_mode = False if raw_input() == 'e' else True
 		to = to if to else 'ru'
 		repeat = int(repeat) if repeat else 3
 		rand = rand if rand else 'r'
@@ -91,11 +111,19 @@ class Study(object):
 	def __init__(self, w):
 		self.words = w
 
+	def delay_tts(self, text):
+		while not self.tts_mode:
+			tts.speak(text)
+			answer = raw_input().decode(encoding)
+			if answer:
+				return answer
+		return raw_input().decode(encoding)
+
 	def survey(self, variant):
 		if self.options == 'a' or self.options == 'ta':
 			answer = self.delay()
 		else:
-			answer = raw_input().decode(encoding)
+			answer = self.delay_tts(', '.join(variant))
 		while not answer in variant:
 			print u'Wrong!'
 			if self.options == 'a':
@@ -107,13 +135,15 @@ class Study(object):
 				continue
 			elif self.options == 't':
 				msg_multiline(variant, startline='Variants:')
-				answer = raw_input().decode(encoding)
+				answer = self.delay_tts(', '.join(variant))
 				continue
 
 	def start(self):
 		print u'Only text: "t", only audio: "a", text plus audio: "ta". (Default "t")'
 		options = raw_input()
 		self.options = options if options else 't'
+		print u'Enable tts: enable - "e", disable - "d" (Default "d")'
+		self.tts_mode = False if raw_input() == 'e' else True
 		while True:
 			try:
 				self.w = self.words.get_word()
@@ -128,7 +158,7 @@ class Study(object):
 				for i in self.w['en']:
 					for j in i:
 						en.append(j)
-				en = [' '.join(en)]
+				en = [', '.join(en)]
 				startline = 'Irregular verb:'
 			if self.options == 't' or options == 'ta':
 				msg_multiline(en, startline=startline)
@@ -161,6 +191,7 @@ class IrregularVerbs(object):
 				try:
 					forms[f].remove(answer)
 					print u'is correct'
+					tts.speak(answer, self.tts_mode)
 					if forms[f]:
 						print u'Enter next variant:'
 				except ValueError:
@@ -169,6 +200,7 @@ class IrregularVerbs(object):
 					if s == repeat:
 						print u'Answer was:'
 						msg_multiline(forms[f], endline=' ')
+						tts.speak(forms[f][0], self.tts_mode)
 			else:
 				f+=1
 
@@ -179,6 +211,8 @@ class IrregularVerbs(object):
 		repeat = raw_input()
 		print u'Order of words: "b" - with begin, "e" - with end: "r" - randomly. (Default "b")'
 		rand = raw_input()
+		print u'Enable tts: enable - "e", disable - "d" (Default "d")'
+		self.tts_mode = False if raw_input() == 'e' else True
 		question_lang = question_lang if question_lang else 'en'
 		repeat = int(repeat) if repeat else 3
 		rand = rand if rand else 'b'
@@ -190,6 +224,8 @@ class IrregularVerbs(object):
 			elif rand == 'r':
 				self.w = self.words.get_random_word()
 			msg_inline(self.w[question_lang][0]) if question_lang == 'en' else msg_inline(self.w[question_lang])
+			if question_lang == 'en':
+				tts.speak(self.w['en'][0][0], self.tts_mode)
 			self.survey(self.w['en'], repeat)
 		else:
 			print u'Happy end!'

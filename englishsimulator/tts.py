@@ -7,7 +7,7 @@ import json
 
 tts = win32com.client.Dispatch('SAPI.SPVoice')
 SPEECH_CONFIG_FILE_NAME="tts.cfg"
-speech_config={}
+speech_config={'rate': 50, 'volume': 100}
 
 def speech_load_config():
 	global speech_config
@@ -15,25 +15,28 @@ def speech_load_config():
 	speech_config=json.load(open(SPEECH_CONFIG_FILE_NAME))
 	for v in tts.GetVoices():
 		if v.Id==speech_config["voice"]:
-			while hasattr(tts, 'SetVoice'):
-				tts.SetVoice(v)
+			while True:
+				if hasattr(tts, 'SetVoice'):
+					tts.SetVoice(v)
+					break
 			break
 	tts.Rate=(int(speech_config["rate"])-50)/5
-	tts.volume = speech_config.get('volume', 100)
+	tts.Volume = speech_config.get('volume', 100)
 
 speech_load_config()
 
 def speech_save_config():
 	json.dump(speech_config, open(SPEECH_CONFIG_FILE_NAME,"w"), indent=4)
 
-def speak(message, queue=False):
+def speak(message, silence=False, queue=False):
 	"""Произносит фразу текущим выбраным голосом.
 	queue - Добавлять сообщение в очередь на произнесение, не прерывая текущей фразы
 	"""
-	flags=1
-	if not queue:
-		flags|=2
-	tts.Speak(message, flags)
+	if not silence:
+		flags=1
+		if not queue:
+			flags=2
+		tts.Speak(message, flags)
 
 def show_list_of_voices():
 	"""Выводит список голосов."""
@@ -46,8 +49,10 @@ def set_voice(num):
 	"""Устанавливает голос по номеру в списке."""
 	try:
 		v=tts.GetVoices()[num-1]
-		while hasattr(tts, 'SetVoice'):
-			tts.SetVoice(v)
+		while True:
+			if hasattr(tts, 'SetVoice'):
+				tts.SetVoice(v)
+				break
 		speech_config["voice"]=v.Id
 		speech_save_config()
 		print u"Использую голос %s"%v.GetDescription()
@@ -63,5 +68,6 @@ def set_rate(rate):
 	speech_save_config()
 
 def set_volume(volume):
+	tts.Volume = volume
 	speech_config["volume"] = volume
 	speech_save_config()
