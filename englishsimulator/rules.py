@@ -110,9 +110,10 @@ class RulesQuestion(object):
 class Study(object):
 	def __init__(self, w):
 		self.words = w
+		self.flag_speak = True
 
 	def delay_tts(self, text):
-		while not self.tts_mode:
+		while not self.tts_mode and self.flag_speak:
 			tts.speak(text)
 			answer = raw_input().decode(encoding)
 			if answer:
@@ -137,6 +138,9 @@ class Study(object):
 				msg_multiline(variant, startline='Variants:')
 				answer = self.delay_tts(', '.join(variant))
 				continue
+		if not self.tts_mode:
+			self.flag_speak = False if self.flag_speak else True
+
 
 	def start(self):
 		print u'Only text: "t", only audio: "a", text plus audio: "ta". (Default "t")'

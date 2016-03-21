@@ -1,1 +1,254 @@
-[["family", "семья"], ["aunt", "тетя"], ["baby", "грудной ребенок"], ["boyfriend", "возлюбленный|молодой человек"], ["brother", "брат"], ["brother-in-law", "зять|шурин|свояк|деверь"], ["child|kid", "ребенок"], ["children|kids", "дети"], ["cousin", "двоюродный брат|двоюродная сестра"], ["dad|daddy", "папа"], ["daughter", "дочь"], ["daughter-in-law", "невестка|сноха"], ["father", "отец"], ["father-in-law", "свекор|тесть"], ["fiance|groom|bridegroom", "жених"], ["fiance|bride", "невеста"], ["folks|family", "семья"], ["foster child", "приемыш"], ["foster father", "приемный отец"], ["foster mother", "приемная мать"], ["girlfriend", "возлюбленная|девушка"], ["godchild", "крестник|крестница"], ["goddaughter", "крестница"], ["godfather", "крестный отец"], ["godmother", "крестная мать"], ["godson", "крестник"], ["grandchild", "внук|внучка"], ["granddad|grandpa|gramps", "дедушка|дед"], ["granddaughter", "внучка"], ["grandfather", "дедушка"], ["grandma|granny|grams", "бабушка|бабуля"], ["grandmother", "бабушка"], ["grandson", "внук"], ["great granddaughter", "правнучка"], ["great grandfather", "прадед"], ["great grandmother", "прабабушка"], ["great grandson", "правнук"], ["husband", "муж"], ["maternal grandfather", "дедушка по линии матери"], ["maternal grandmother", "бабушка по линии матери"], ["mother", "мать"], ["mother-in-law", "свекровь|теща"], ["mum|mummy|mom", "мама"], ["nephew", "племянник"], ["niece", "племянница"], ["parents", "родители"], ["paternal grandfather", "дедушка по линии отца"], ["paternal grandmother", "бабушка по линии отца"], ["relatives", "родственники"], ["sister", "сестра"], ["sister-in-law", "невестка|золовка|свояченица"], ["son", "сын"], ["son-in-law", "зять"], ["spouse", "супруг|супруга"], ["stepbrother|half brother", "сводный брат"], ["stepchild", "пасынок|падчерица"], ["stepdaughter", "падчерица"], ["stepfather", "отчим"], ["stepmother", "мачеха"], ["stepsister|half sister", "сводная сестра"], ["stepson", "пасынок"], ["uncle", "дядя"], ["wife", "жена"]]
+[
+    [
+        "family", 
+        "семья"
+    ], 
+    [
+        "aunt", 
+        "тетя"
+    ], 
+    [
+        "baby", 
+        "грудной ребенок"
+    ], 
+    [
+        "boyfriend", 
+        "возлюбленный|молодой человек"
+    ], 
+    [
+        "brother", 
+        "брат"
+    ], 
+    [
+        "brother-in-law", 
+        "зять|шурин|свояк|деверь"
+    ], 
+    [
+        "child|kid", 
+        "ребенок"
+    ], 
+    [
+        "children|kids", 
+        "дети"
+    ], 
+    [
+        "cousin", 
+        "двоюродный брат|двоюродная сестра"
+    ], 
+    [
+        "dad|daddy", 
+        "папа"
+    ], 
+    [
+        "daughter", 
+        "дочь"
+    ], 
+    [
+        "daughter-in-law", 
+        "невестка|сноха"
+    ], 
+    [
+        "father", 
+        "отец"
+    ], 
+    [
+        "father-in-law", 
+        "свекор|тесть"
+    ], 
+    [
+        "fiance|groom|bridegroom", 
+        "жених"
+    ], 
+    [
+        "fiance|bride", 
+        "невеста"
+    ], 
+    [
+        "folks|family", 
+        "семья"
+    ], 
+    [
+        "foster child", 
+        "приемыш"
+    ], 
+    [
+        "foster father", 
+        "приемный отец"
+    ], 
+    [
+        "foster mother", 
+        "приемная мать"
+    ], 
+    [
+        "girlfriend", 
+        "возлюбленная|девушка"
+    ], 
+    [
+        "godchild", 
+        "крестник|крестница"
+    ], 
+    [
+        "goddaughter", 
+        "крестница"
+    ], 
+    [
+        "godfather", 
+        "крестный отец"
+    ], 
+    [
+        "godmother", 
+        "крестная мать"
+    ], 
+    [
+        "godson", 
+        "крестник"
+    ], 
+    [
+        "grandchild", 
+        "внук|внучка"
+    ], 
+    [
+        "granddad|grandpa|gramps", 
+        "дедушка|дед"
+    ], 
+    [
+        "granddaughter", 
+        "внучка"
+    ], 
+    [
+        "grandfather", 
+        "дедушка"
+    ], 
+    [
+        "grandma|granny|grams", 
+        "бабушка|бабуля"
+    ], 
+    [
+        "grandmother", 
+        "бабушка"
+    ], 
+    [
+        "grandson", 
+        "внук"
+    ], 
+    [
+        "great granddaughter", 
+        "правнучка"
+    ], 
+    [
+        "great grandfather", 
+        "прадед"
+    ], 
+    [
+        "great grandmother", 
+        "прабабушка"
+    ], 
+    [
+        "great grandson", 
+        "правнук"
+    ], 
+    [
+        "husband", 
+        "муж"
+    ], 
+    [
+        "maternal grandfather", 
+        "дедушка по линии матери"
+    ], 
+    [
+        "maternal grandmother", 
+        "бабушка по линии матери"
+    ], 
+    [
+        "mother", 
+        "мать"
+    ], 
+    [
+        "mother-in-law", 
+        "свекровь|теща"
+    ], 
+    [
+        "mum|mummy|mom", 
+        "мама"
+    ], 
+    [
+        "nephew", 
+        "племянник"
+    ], 
+    [
+        "niece", 
+        "племянница"
+    ], 
+    [
+        "parents", 
+        "родители"
+    ], 
+    [
+        "paternal grandfather", 
+        "дедушка по линии отца"
+    ], 
+    [
+        "paternal grandmother", 
+        "бабушка по линии отца"
+    ], 
+    [
+        "relatives", 
+        "родственники"
+    ], 
+    [
+        "sister", 
+        "сестра"
+    ], 
+    [
+        "sister-in-law", 
+        "невестка|золовка|свояченица"
+    ], 
+    [
+        "son", 
+        "сын"
+    ], 
+    [
+        "son-in-law", 
+        "зять"
+    ], 
+    [
+        "spouse", 
+        "супруг|супруга"
+    ], 
+    [
+        "stepbrother|half brother", 
+        "сводный брат"
+    ], 
+    [
+        "stepchild", 
+        "пасынок|падчерица"
+    ], 
+    [
+        "stepdaughter", 
+        "падчерица"
+    ], 
+    [
+        "stepfather", 
+        "отчим"
+    ], 
+    [
+        "stepmother", 
+        "мачеха"
+    ], 
+    [
+        "stepsister|half sister", 
+        "сводная сестра"
+    ], 
+    [
+        "stepson", 
+        "пасынок"
+    ], 
+    [
+        "uncle", 
+        "дядя"
+    ], 
+    [
+        "wife", 
+        "жена"
+    ]
+]

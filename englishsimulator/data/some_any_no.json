@@ -1,1 +1,18 @@
-[["some|any|no", "некоторый|некоторые|любой|какой-то|несколько"], ["somebody|anybody|nobody", "кто-то"], ["something|anything|nothing", "что-то"], ["somewhere|anywhere|nowhere", "где-то|куда-то"]]
+[
+    [
+        "some|any|no", 
+        "некоторый|некоторые|любой|какой-то|несколько"
+    ], 
+    [
+        "somebody|anybody|nobody", 
+        "кто-то"
+    ], 
+    [
+        "something|anything|nothing", 
+        "что-то"
+    ], 
+    [
+        "somewhere|anywhere|nowhere", 
+        "где-то|куда-то"
+    ]
+]
