@@ -1,1 +1,154 @@
-[["I believe that", "Я считаю, что"], ["In my experience", "По моему опыту"], ["Iwould like to point out that", "Я хотел бы отметить, что"], ["As far as I am concerned", "Насколько я могу судить"], ["Speaking for myself", "Если говорить о себе"], ["In my opinion", "По моему мнению"], ["Personally, I think", "Лично я думаю"], ["I would say that", "Я бы сказал, что"], ["I would suggest that", "Я предложил бы"], ["What I mean is", "Я имею в виду"], ["It is thought that", "Считается, что"], ["Some people say that", "Некоторые люди говорят, что"], ["It is considered", "Считается"], ["It is generally accepted that", "Принято считать, что"], ["You are absolutely right", "Вы совершенно правы"], ["Yes, I agree", "Да, я согласен"], ["I think so too", "Я тоже так думаю"], ["That is a good point", "Это хорошая мысль"], ["Exactly", "Именно|точно"], ["I do not think so either", "Я не думаю так же"], ["So do I", "Я тоже"], ["I would go along with that", "Я бы согласился с этим"], ["That is true", "Это правда"], ["Neither do I", "Я тоже"], ["I agree with you entirely", "Я полностью с вами согласен"], ["That is just what I was thinking", "Это как раз то, о чем я думал"], ["I could not agree more", "Я не могу не согласиться"], ["That is different", "Это совсем другое дело"], ["I do not agree with you", "Я с Вами не согласен"], ["However", "Тем не менее|Все же"], ["That is not entirely true", "Это не совсем верно"], ["On the contrary", "Напротив"], ["I am sorry to disagree with you but", "Извини, что не согласен, но"], ["Yes, but do not you think", "Да, но Вы же не думаете"], ["That is not the same thing at all", "Это не одно и то же"], ["I am afraid I have to disagree", "Боюсь, я вынужден не согласиться"], ["I am not so sure about that", "Я не так уверен в этом"], ["I must take issue with you on that", "Я не могу согласиться с вами по этому вопросу"]]
+[
+    [
+        "i believe that", 
+        "я считаю, что"
+    ], 
+    [
+        "in my experience", 
+        "по моему опыту"
+    ], 
+    [
+        "iwould like to point out that", 
+        "я хотел бы отметить, что"
+    ], 
+    [
+        "as far as i am concerned", 
+        "насколько я могу судить"
+    ], 
+    [
+        "speaking for myself", 
+        "если говорить о себе"
+    ], 
+    [
+        "in my opinion", 
+        "по моему мнению"
+    ], 
+    [
+        "personally, i think", 
+        "лично я думаю"
+    ], 
+    [
+        "i would say that", 
+        "я бы сказал, что"
+    ], 
+    [
+        "i would suggest that", 
+        "я предложил бы"
+    ], 
+    [
+        "what i mean is", 
+        "я имею в виду"
+    ], 
+    [
+        "it is thought that", 
+        "считается, что"
+    ], 
+    [
+        "some people say that", 
+        "некоторые люди говорят, что"
+    ], 
+    [
+        "it is considered", 
+        "считается"
+    ], 
+    [
+        "it is generally accepted that", 
+        "принято считать, что"
+    ], 
+    [
+        "you are absolutely right", 
+        "вы совершенно правы"
+    ], 
+    [
+        "yes, i agree", 
+        "да, я согласен"
+    ], 
+    [
+        "i think so too", 
+        "я тоже так думаю"
+    ], 
+    [
+        "that is a good point", 
+        "это хорошая мысль"
+    ], 
+    [
+        "exactly", 
+        "именно|точно"
+    ], 
+    [
+        "i do not think so either", 
+        "я не думаю так же"
+    ], 
+    [
+        "so do i", 
+        "я тоже"
+    ], 
+    [
+        "i would go along with that", 
+        "я бы согласился с этим"
+    ], 
+    [
+        "that is true", 
+        "это правда"
+    ], 
+    [
+        "neither do i", 
+        "я тоже"
+    ], 
+    [
+        "i agree with you entirely", 
+        "я полностью с вами согласен"
+    ], 
+    [
+        "that is just what i was thinking", 
+        "это как раз то, о чем я думал"
+    ], 
+    [
+        "i could not agree more", 
+        "я не могу не согласиться"
+    ], 
+    [
+        "that is different", 
+        "это совсем другое дело"
+    ], 
+    [
+        "i do not agree with you", 
+        "я с вами не согласен"
+    ], 
+    [
+        "however", 
+        "тем не менее|все же"
+    ], 
+    [
+        "that is not entirely true", 
+        "это не совсем верно"
+    ], 
+    [
+        "on the contrary", 
+        "напротив"
+    ], 
+    [
+        "i am sorry to disagree with you but", 
+        "извини, что не согласен, но"
+    ], 
+    [
+        "yes, but do not you think", 
+        "да, но вы же не думаете"
+    ], 
+    [
+        "that is not the same thing at all", 
+        "это не одно и то же"
+    ], 
+    [
+        "i am afraid i have to disagree", 
+        "боюсь, я вынужден не согласиться"
+    ], 
+    [
+        "i am not so sure about that", 
+        "я не так уверен в этом"
+    ], 
+    [
+        "i must take issue with you on that", 
+        "я не могу согласиться с вами по этому вопросу"
+    ]
+]

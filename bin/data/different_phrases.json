@@ -1,1 +1,242 @@
-[["it is high time", "давно пора"], ["take your time", "не торопись"], ["help yourself", "угощайся"], ["to make a decision", "принимать решение"], ["to achieve results", "добиться результатов"], ["pay attention", "обращать внимание"], ["to draw someones attention", "обращать внимание чье-то"], ["to take a chance", "рисковать"], ["to have a rest", "отдыхать"], ["to take offence", "обидеться"], ["to take a nap", "вздремнуть"], ["shadow cabinet", "теневой кабинет"], ["to hit the target", "попасть в цель"], ["golden share", "золотая акция|золотая жила"], ["to put an end to", "положить конец|преодолеть"], ["to play with fire", "играть с огнем"], ["the root of the trouble", "корень зла"], ["to read between lines", "читать между строк"], ["to take into account", "принимать во внимание"], ["to make a point", "обратить особое внимание"], ["to jump at conclusions", "делать поспешные выводы"], ["moment of silence", "минута молчания"], ["ups-and-downs", "взлеты и падения"], ["trouble shooter", "специалист по разрешению конфликтных ситуаций"], ["think tank", "мозговой центр"], ["token strike", "предупредительная забастовка"], ["in accordance with|according to", "в соответствии с"], ["on account of", "на основании"], ["in addition to", "в добавление к"], ["at any rate", "во всяком случае"], ["on behalf of", "от имени"], ["on the basis of", "на основе"], ["for the benefit of", "на благо"], ["by and large", "в целом"], ["in charge of", "отвечающий за"], ["in connection with", "в связи с"], ["in contrast to|in contrast with", "в отличии"], ["in the course of", "в ходе"], ["as early as", "еще в"], ["with the exception of", "за исключением"], ["at the expense of", "за счет"], ["Be like", "Быть как|быть похожим"], ["Be quiet", "Потише"], ["By all means", "Несомненно"], ["By and large", "В общем и целом"], ["By chance", "Случайно"], ["By far", "Определенно"], ["By mistake", "По ошибке"], ["By the way", "Между прочем"], ["Bye-Bye", "Пока-пока"], ["Call me", "Позвоните мне"], ["Come across", "Столкнуться|случайно встретить"], ["Come here", "Подойди сюда"], ["Come in", "Входите"], ["Come over", "Прийти|приехать"], ["Come this way", "Проходите сюда"], ["do not be late", "Не опаздывай"], ["do not do that", "Не делай этого"], ["do not worry", "Не беспокойтесь"], ["Dreams come true", "Мечты сбываются"]]
+[
+    [
+        "it is high time", 
+        "давно пора"
+    ], 
+    [
+        "take your time", 
+        "не торопись"
+    ], 
+    [
+        "help yourself", 
+        "угощайся"
+    ], 
+    [
+        "to make a decision", 
+        "принимать решение"
+    ], 
+    [
+        "to achieve results", 
+        "добиться результатов"
+    ], 
+    [
+        "pay attention", 
+        "обращать внимание"
+    ], 
+    [
+        "to draw someones attention", 
+        "обращать внимание чье-то"
+    ], 
+    [
+        "to take a chance", 
+        "рисковать"
+    ], 
+    [
+        "to have a rest", 
+        "отдыхать"
+    ], 
+    [
+        "to take offence", 
+        "обидеться"
+    ], 
+    [
+        "to take a nap", 
+        "вздремнуть"
+    ], 
+    [
+        "shadow cabinet", 
+        "теневой кабинет"
+    ], 
+    [
+        "to hit the target", 
+        "попасть в цель"
+    ], 
+    [
+        "golden share", 
+        "золотая акция|золотая жила"
+    ], 
+    [
+        "to put an end to", 
+        "положить конец|преодолеть"
+    ], 
+    [
+        "to play with fire", 
+        "играть с огнем"
+    ], 
+    [
+        "the root of the trouble", 
+        "корень зла"
+    ], 
+    [
+        "to read between lines", 
+        "читать между строк"
+    ], 
+    [
+        "to take into account", 
+        "принимать во внимание"
+    ], 
+    [
+        "to make a point", 
+        "обратить особое внимание"
+    ], 
+    [
+        "to jump at conclusions", 
+        "делать поспешные выводы"
+    ], 
+    [
+        "moment of silence", 
+        "минута молчания"
+    ], 
+    [
+        "ups-and-downs", 
+        "взлеты и падения"
+    ], 
+    [
+        "trouble shooter", 
+        "специалист по разрешению конфликтных ситуаций"
+    ], 
+    [
+        "think tank", 
+        "мозговой центр"
+    ], 
+    [
+        "token strike", 
+        "предупредительная забастовка"
+    ], 
+    [
+        "in accordance with|according to", 
+        "в соответствии с"
+    ], 
+    [
+        "on account of", 
+        "на основании"
+    ], 
+    [
+        "in addition to", 
+        "в добавление к"
+    ], 
+    [
+        "at any rate", 
+        "во всяком случае"
+    ], 
+    [
+        "on behalf of", 
+        "от имени"
+    ], 
+    [
+        "on the basis of", 
+        "на основе"
+    ], 
+    [
+        "for the benefit of", 
+        "на благо"
+    ], 
+    [
+        "by and large", 
+        "в целом"
+    ], 
+    [
+        "in charge of", 
+        "отвечающий за"
+    ], 
+    [
+        "in connection with", 
+        "в связи с"
+    ], 
+    [
+        "in contrast to|in contrast with", 
+        "в отличии"
+    ], 
+    [
+        "in the course of", 
+        "в ходе"
+    ], 
+    [
+        "as early as", 
+        "еще в"
+    ], 
+    [
+        "with the exception of", 
+        "за исключением"
+    ], 
+    [
+        "at the expense of", 
+        "за счет"
+    ], 
+    [
+        "be like", 
+        "быть как|быть похожим"
+    ], 
+    [
+        "be quiet", 
+        "потише"
+    ], 
+    [
+        "by all means", 
+        "несомненно"
+    ], 
+    [
+        "by and large", 
+        "в общем и целом"
+    ], 
+    [
+        "by chance", 
+        "случайно"
+    ], 
+    [
+        "by far", 
+        "определенно"
+    ], 
+    [
+        "by mistake", 
+        "по ошибке"
+    ], 
+    [
+        "by the way", 
+        "между прочем"
+    ], 
+    [
+        "bye-bye", 
+        "пока-пока"
+    ], 
+    [
+        "call me", 
+        "позвоните мне"
+    ], 
+    [
+        "come across", 
+        "столкнуться|случайно встретить"
+    ], 
+    [
+        "come here", 
+        "подойди сюда"
+    ], 
+    [
+        "come in", 
+        "входите"
+    ], 
+    [
+        "come over", 
+        "прийти|приехать"
+    ], 
+    [
+        "come this way", 
+        "проходите сюда"
+    ], 
+    [
+        "do not be late", 
+        "не опаздывай"
+    ], 
+    [
+        "do not do that", 
+        "не делай этого"
+    ], 
+    [
+        "do not worry", 
+        "не беспокойтесь"
+    ], 
+    [
+        "dreams come true", 
+        "мечты сбываются"
+    ]
+]
