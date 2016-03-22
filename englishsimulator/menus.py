@@ -12,42 +12,64 @@ loader = Loader()
 
 def setings_tts():
 	while True:
-		print u"Настройки TTS:"
-		print u'1 - Выбрать синтезатор:'
-		print u'2 - Установить громкость синтезатора'
-		print u'3 - Установить темп речи'
-		print u'0 - Выйти'
-		command = int(raw_input())
+		print u"Setings of text to speech:"
+		print u'1 - Choose synthesiser'
+		print u'2 - Set sinthesiser volume'
+		print u'3 - Set synthesiser rate'
+		print u'0 - Exit'
+		try:
+			command = int(raw_input())
+		except ValueError:
+			print u'Please, select item of menu'
+			continue
 		if command == 0:
 			return
 		elif command == 1:
 			print u"Choose synthesiser of list:"
 			tts.show_list_of_voices()
-			tts.set_voice(int(raw_input()))
-			continue
+			try:
+				tts.set_voice(int(raw_input()))
+				continue
+			except ValueError:
+				print u'Command is wrong!'
+				continue
 		elif command == 2:
 			print u'Set volume for voice 0 - 100: (Default 100)'
 			volume = raw_input()
-			volume = int(volume) if volume else 100
-			tts.set_volume(volume)
-			continue
+			try:
+				volume = int(volume) if volume else 100
+				tts.set_volume(volume)
+				continue
+			except ValueError:
+				print u'Command is wrong!'
+				continue
 		elif command == 3:
 			print u'Set temp for voice 0 - 100: (Default 50)'
 			temp = raw_input()
-			temp = int(temp) if temp else 50
-			tts.set_rate(temp)
+			try:
+				temp = int(temp) if temp else 50
+				tts.set_rate(temp)
+				continue
+			except ValueError:
+				print u'Command is wrong!'
+				continue
 
 def choicebase(multi=False):
 	bases = loader.get_all_bases()
-	selectedbases = []
-	msg_multiline(bases, numbers=True)
-	nums = map(int, raw_input().split())
-	if not multi:
-		return [bases[nums[0]-1]]
-	else:
-		for i in nums:
-			selectedbases.append(bases[i-1])
-	return selectedbases
+	while True:
+		selectedbases = []
+		msg_multiline(bases, numbers=True)
+		try:
+			nums = map(int, raw_input().split())
+		except ValueError:
+			print u'Enter one number or some numbers bases of list!'
+			continue
+		if not multi:
+			return [bases[nums[0]-1]]
+		else:
+			for i in nums:
+				selectedbases.append(bases[i-1])
+		return selectedbases
 
 def newword():
 	print u"Enter word in English:"
@@ -63,7 +85,11 @@ def addtobase():
 	while True:
 		print u'1 - add word'
 		print u'2 - exit'
-		command = int(raw_input())
+		try:
+			command = int(raw_input())
+		except ValueError:
+			print u'Please, select item of menu!'
+			continue
 		if command == 1:
 			word = newword()
 			data.append(word)
@@ -94,7 +120,11 @@ def startmenu():
 		print u'5 - create base'
 		print u'6 - Setings tts'
 		print u'0 - exit'
-		command = int(raw_input())
+		try:
+			command = int(raw_input())
+		except ValueError:
+			print u'Please, select item of menu'
+			continue
 		if command == 2:
 			IrregularVerbs(getwords()).start()
 		elif command == 1:

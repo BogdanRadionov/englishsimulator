@@ -55,9 +55,9 @@ def set_voice(num):
 				break
 		speech_config["voice"]=v.Id
 		speech_save_config()
-		print u"Использую голос %s"%v.GetDescription()
+		print u"Chose voice %s"%v.GetDescription()
 	except IndexError:
-		print u"Нет такого голоса!"
+		print u"That voice is not found!"
 
 def set_rate(rate):
 	"""Устанавливает темп речи.
