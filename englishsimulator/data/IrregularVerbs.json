@@ -326,5 +326,57 @@
     [
         "#1:show#2:showed#3:shown", 
         "показывать"
+    ], 
+    [
+        "#1:shrink#2:shrank#3:shrunk", 
+        "сжиматься"
+    ], 
+    [
+        "#1:shut#2:shut#3:shut", 
+        "закрывать"
+    ], 
+    [
+        "#1:sing#2:sang#3:sung", 
+        "петь"
+    ], 
+    [
+        "#1:sink#2:sank#3:sunk", 
+        "тонуть"
+    ], 
+    [
+        "#1:sit#2:sat#3:sat", 
+        "сидеть"
+    ], 
+    [
+        "#1:sleep#2:slept#3:slept", 
+        "спать"
+    ], 
+    [
+        "#1:slide#2:slid#3:slid", 
+        "скользить"
+    ], 
+    [
+        "#1:sow#2:sowed#3:sown", 
+        "сеять"
+    ], 
+    [
+        "#1:speak#2:spoke#3:spoken", 
+        "говорить"
+    ], 
+    [
+        "#1:spell#2:spelt#3:spelt", 
+        "говорить по буквам|произносить по буквам"
+    ], 
+    [
+        "#1:spend#2:spent#3:spent", 
+        "тратить"
+    ], 
+    [
+        "#1:spill#2:spilt#3:spilt", 
+        "проливать|разливать"
+    ], 
+    [
+        "#1:spoil#2:spoilt#3:spoilt", 
+        "портить"
     ]
 ]

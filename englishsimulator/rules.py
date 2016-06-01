@@ -84,6 +84,11 @@ class RulesQuestion(object):
 		repeat = raw_input()
 		print u'Order of words: "b" - with begin, "e" - with end: "r" - randomly. (Default "r")'
 		rand = raw_input()
+		print u"Range of words - 1 {0} (default - 1 {0})".format(totalanswers)
+		rangewords = raw_input().split()
+		if rangewords:
+			self.words.trim_words(int(rangewords[0])-1, int(rangewords[1]))
+		totalanswers = len(self.words)
 		print u'Enable tts: enable - "e", disable - "d" (Default "d")'
 		self.tts_mode = False if raw_input() == 'e' else True
 		to = to if to else 'ru'
@@ -143,11 +148,16 @@ class Study(object):
 
 
 	def start(self):
+		totalanswers = len(self.words)
 		print u'Only text: "t", only audio: "a", text plus audio: "ta". (Default "t")'
 		options = raw_input()
 		self.options = options if options else 't'
 		print u'Enable tts: enable - "e", disable - "d" (Default "d")'
 		self.tts_mode = False if raw_input() == 'e' else True
+		print u"Range of words - 1 {0} (default - 1 {0})".format(totalanswers)
+		rangewords = raw_input().split()
+		if rangewords:
+			self.words.trim_words(int(rangewords[0])-1, int(rangewords[1]))
 		while True:
 			try:
 				self.w = self.words.get_word()
@@ -209,12 +219,17 @@ class IrregularVerbs(object):
 				f+=1
 
 	def start(self):
+		totalanswers = len(self.words)
 		print u'Question language: "en", "ru" (default "en")'
 		question_lang = raw_input()
 		print u'Repeat question (default 3)'
 		repeat = raw_input()
 		print u'Order of words: "b" - with begin, "e" - with end: "r" - randomly. (Default "b")'
 		rand = raw_input()
+		print u"Range of words - 1 {0} (default - 1 {0})".format(totalanswers)
+		rangewords = raw_input().split()
+		if rangewords:
+			self.words.trim_words(int(rangewords[0])-1, int(rangewords[1]))
 		print u'Enable tts: enable - "e", disable - "d" (Default "d")'
 		self.tts_mode = False if raw_input() == 'e' else True
 		question_lang = question_lang if question_lang else 'en'

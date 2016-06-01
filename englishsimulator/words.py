@@ -98,9 +98,11 @@ class Words(object):
 		except IndexError:
 			raise WordsEnded()
 
+	def trim_words(self, f, t):
+		self._list_words = self._list_words[f:t]
 
 	def __len__(self):
 		return len(self._list_words)
 
-def __nonzero(self):
+	def __nonzero(self):
 		return bool(self._list_words)
